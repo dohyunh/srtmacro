@@ -64,6 +64,8 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1) {
 			$("#locSeatAttCd1").val(sessionStorage.getItem('locSeatAttCd1'));
 			$("#rqSeatAttCd1").val(sessionStorage.getItem('rqSeatAttCd1'));
 
+			const buttonClass = 'btn_small btn_burgundy_dark';
+
 			if ($("#search-list").length != 0) {
 				var rows = $('#search-list table tr');
 
@@ -78,8 +80,8 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1) {
 						var coachSpecials = coach.children("a");
 						if (coachSpecials.length != 0) {
 							for (j = 0; j < coachSpecials.length; j++) {
-								name = $(coachSpecials[j]).attr('class');
-								if (name == 'button button-02') {
+								const matched = $(coachSpecials[j]).hasClass(buttonClass);
+								if (matched) {
 									$(coachSpecials[0])[0].click();
 									succeed = true;
 									break;
@@ -93,8 +95,8 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1) {
 						var firstSpecials = first.children("a");
 						if (firstSpecials.length != 0) {
 							for (j = 0; j < firstSpecials.length; j++) {
-								name = $(firstSpecials[j]).attr('class');
-								if (name == 'button button-02') {
+								const matched = $(firstSpecials[j]).hasClass(buttonClass);
+								if (matched) {
 									$(firstSpecials[0])[0].click();
 									succeed = true;
 									break;
